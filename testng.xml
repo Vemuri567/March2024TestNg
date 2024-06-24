@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/March2024Selenium Project/Selenium">
+        <classes>
+            <class name="TestNG.TestClass">
+                <methods>
+                    <include name="method1"/>
+                    <include name="method2"/>
+                    <include name="method3"/>
+                </methods>
+            </class>
+            <class name="TestNG.Annotations">
+                <methods>
+                    <include name="testcase1"/>
+
+                    <include name="testcase2"/>
+                </methods>
+            </class>
+            <class name="TestNG.Assertions">
+                <methods>
+
+                    <include name="testsum"/>
+                    <include name="teststring"/>
+                    <include name="testarray"/>
+                </methods>
+            </class>
+            <class name="TestNG.SoftAssertion">
+                <methods>
+                    <include name="testsum"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+</suite>

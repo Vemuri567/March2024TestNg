@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="9" passed="8" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-06-05T10:37:14 IST" name="All Test Suite" finished-at="2024-06-05T10:37:14 IST" duration-ms="129">
+    <groups>
+    </groups>
+    <test started-at="2024-06-05T10:37:14 IST" name="D:/March2024Selenium Project/Selenium" finished-at="2024-06-05T10:37:14 IST" duration-ms="129">
+      <class name="TestNG.Annotations">
+        <test-method is-config="true" signature="beforesuite()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="beforesuite" finished-at="2024-06-05T10:37:14 IST" duration-ms="14" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforesuite -->
+        <test-method is-config="true" signature="beforetest()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="beforetest" finished-at="2024-06-05T10:37:14 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforetest -->
+        <test-method is-config="true" signature="beforeclass()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="beforeclass" finished-at="2024-06-05T10:37:14 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeclass -->
+        <test-method is-config="true" signature="beforemethod()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="beforemethod" finished-at="2024-06-05T10:37:14 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforemethod -->
+        <test-method signature="testcase1()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="testcase1" finished-at="2024-06-05T10:37:14 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testcase1 -->
+        <test-method is-config="true" signature="aftermethod()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="aftermethod" finished-at="2024-06-05T10:37:14 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftermethod -->
+        <test-method is-config="true" signature="beforemethod()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="beforemethod" finished-at="2024-06-05T10:37:14 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforemethod -->
+        <test-method signature="testcase2()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="testcase2" finished-at="2024-06-05T10:37:14 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testcase2 -->
+        <test-method is-config="true" signature="aftermethod()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="aftermethod" finished-at="2024-06-05T10:37:14 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftermethod -->
+        <test-method is-config="true" signature="afterclass()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="afterclass" finished-at="2024-06-05T10:37:14 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterclass -->
+        <test-method is-config="true" signature="aftertest()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="aftertest" finished-at="2024-06-05T10:37:14 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftertest -->
+        <test-method is-config="true" signature="aftersuite()[pri:0, instance:TestNG.Annotations@c03cf28]" started-at="2024-06-05T10:37:14 IST" name="aftersuite" finished-at="2024-06-05T10:37:14 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftersuite -->
+      </class> <!-- TestNG.Annotations -->
+      <class name="Appcode.TestClass">
+        <test-method signature="method1()[pri:0, instance:Appcode.TestClass@7a675056]" started-at="2024-06-05T10:37:14 IST" name="method1" finished-at="2024-06-05T10:37:14 IST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method1 -->
+        <test-method signature="method2()[pri:0, instance:Appcode.TestClass@7a675056]" started-at="2024-06-05T10:37:14 IST" name="method2" finished-at="2024-06-05T10:37:14 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method2 -->
+        <test-method signature="method3()[pri:0, instance:Appcode.TestClass@7a675056]" started-at="2024-06-05T10:37:14 IST" name="method3" finished-at="2024-06-05T10:37:14 IST" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method3 -->
+      </class> <!-- Appcode.TestClass -->
+      <class name="TestNG.SoftAssertion">
+        <test-method signature="testsum()[pri:0, instance:TestNG.SoftAssertion@6497b078]" started-at="2024-06-05T10:37:14 IST" name="testsum" finished-at="2024-06-05T10:37:14 IST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testsum -->
+      </class> <!-- TestNG.SoftAssertion -->
+      <class name="TestNG.Assertions">
+        <test-method signature="testsum()[pri:0, instance:TestNG.Assertions@1329eff]" started-at="2024-06-05T10:37:14 IST" name="testsum" finished-at="2024-06-05T10:37:14 IST" duration-ms="21" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[actual result 5 is not equal to expected expected [4] but found [5]]]>
+            </message>
+            <full-stacktrace>
+                <![CDATA[java.lang.AssertionError: actual result 5 is not equal to expected expected [4] but found [5]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at TestNG.Assertions.testsum(Assertions.java:30)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testsum -->
+        <test-method signature="teststring()[pri:0, instance:TestNG.Assertions@1329eff]" started-at="2024-06-05T10:37:14 IST" name="teststring" finished-at="2024-06-05T10:37:14 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teststring -->
+        <test-method signature="testarray()[pri:0, instance:TestNG.Assertions@1329eff]" started-at="2024-06-05T10:37:14 IST" name="testarray" finished-at="2024-06-05T10:37:14 IST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testarray -->
+      </class> <!-- TestNG.Assertions -->
+    </test> <!-- D:/March2024Selenium Project/Selenium -->
+  </suite> <!-- All Test Suite -->
+</testng-results>
