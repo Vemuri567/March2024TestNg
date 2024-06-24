@@ -12,6 +12,7 @@ public class RadioButtonForm extends WebElementExtention {
     private String Genderxpath="//input[@name='gender' and @value='%s']";
     private String Agegroupxpath="//input[@value='%s']";
     private String Getvaluexpath="//button[text()='Get values']";
+    private  String checkedMessageXpath="//p[text()=\"Radio button '%s' is checked\"]";
     public RadioButtonForm(WebDriver driver){
         super(driver);
         this.driver=driver;
@@ -33,5 +34,9 @@ public class RadioButtonForm extends WebElementExtention {
     }
     public void ClickonGetvalues(){
         ClickonWebElement(Getvaluexpath);
+    }
+    public String GetCheckedMessage(String gender)
+    {
+            return GetTextForDynamicXpath(checkedMessageXpath,gender);
     }
 }

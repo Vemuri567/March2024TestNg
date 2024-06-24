@@ -7,18 +7,19 @@ import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 
+
 public class BaseClass {
     public WebDriver driver;
     @BeforeClass
-    public WebDriver initedriver() {
+    public WebDriver initDriver() {
         driver = new ChromeDriver();
-        System.setProperty("webdriver.chrome.driver", "D:\\March2024Selenium Project\\Selenium\\src\\test\\resources\\ChromeDriver\\ChromeDriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\March2024Testng\\March2024TestNg\\src\\test\\resources\\ChromeDriver\\ChromeDriver.exe");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         return driver;
     }
-    /*@AfterClass
+    @AfterClass
     public void Afterclass(){
-        driver.close();
-    }*/
+        driver.quit();
+    }
 }
