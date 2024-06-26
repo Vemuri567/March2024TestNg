@@ -12,6 +12,13 @@ public class DropDownForm extends WebElementExtention {
     WebDriver driver;
     private String Selectlistxpath = "//div[text()='Select List Demo']";
     private String daydropdownxpath = "//select[@id='select-demo']";
+    private String daySelectedxpath="//p[text()='Day selected :- Monday']";
+    private String multiselectedxpath="//select[@id='multi-select']";
+    private String firstSelectedxpath="//button[text()='First Selected']";
+    private String firstSelectedOptionxpath="//p[text()='First selected option is : California']";
+    private String getAllSelectedxpath="//button[text()='Get All Selected']";
+    private String optionsSelectedxpath="//p[text()='Options selected are : Texas']";
+    private String multiselectxpath="//select[@id='multi-select']";
 
     public DropDownForm(WebDriver driver) {
         super(driver);
@@ -24,17 +31,31 @@ public class DropDownForm extends WebElementExtention {
     public void SelectDropdownOption(String option){
         SelectDropdownOptionByVisibletext(daydropdownxpath,option);
     }
-    public List<String> GetDropdownitems(){
-        WebElement testDropDown = driver.findElement(By.id("testingDropdown"));
-        Select dropdown = new Select(testDropDown);
-        List<WebElement> alloptions=dropdown.getOptions();
-        List<String> items=new ArrayList<>();
-        for(int i=0;i<=alloptions.size()-1;i++){
-            String text=alloptions.get(i).getText();
-            items.add(text);
-        }
-        return items;
+    public String SelectedOption(){
+        return GetText(daySelectedxpath);
     }
+    public List<String> GetDropdownList(){
+        return GetDropdownitems(daydropdownxpath);
+    }
+    public void SelectState(String state){
+        SelectDropdownOptionByVisibletext(multiselectedxpath,state);
+    }
+    public void ClickOnFirstSelected(){
+        ClickonWebElement(firstSelectedxpath);
+    }
+    public String GetFirstSelectedOption(){
+       return GetText(firstSelectedOptionxpath);
+    }
+    public void ClickOnGetAllSelected(){
+        ClickonWebElement(getAllSelectedxpath);
+    }
+    public String OptionsSelected(){
+        return GetText(optionsSelectedxpath);
+    }
+    public List<String> GetDropdownList2(){
+        return GetDropdownitems(multiselectxpath);
+    }
+
 
 
 }

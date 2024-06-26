@@ -14,7 +14,6 @@ public class RadioButtonForm extends WebElementExtention {
     private String Getvaluexpath="//button[text()='Get values']";
     private  String checkedMessageXpath="//p[text()=\"Radio button '%s' is checked\"]";
     private String getValuesmessagexpath="//p[@class='groupradiobutton']";
-    private String xpath="//p[text()=\"Sex : %s\"]";
     public RadioButtonForm(WebDriver driver){
         super(driver);
         this.driver=driver;

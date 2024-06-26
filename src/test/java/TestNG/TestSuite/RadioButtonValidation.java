@@ -51,11 +51,14 @@ public class RadioButtonValidation extends BaseClass {
         shomepage.ClickonNavmenuitem("Input Forms");
         shomepage.ClickonInputformitem("Radio Buttons Demo");
         Assert.assertTrue(rpage.VerifyRadiobutton("Radio Button Demo"),"Radio button" + " page is not displyed");
-        rpage.ClickonButton("Male");
-        rpage.ClickonAgegroup("0 - 5");
+        String gender="Male";
+        String agegroup="0 - 5";
+        rpage.ClickonButton(gender);
+        rpage.ClickonAgegroup(agegroup);
         rpage.ClickonGetvalues();
-        //String acualmaleChecked=rpage.GetValesMessage("Male");
-       // Assert.assertEquals("Radio button 'Male'and age group '0-5' is checked",acualmaleChecked);
+        String expectedradiobuttonchecked="Sex : "+gender+"\n" + "Age group: "+agegroup+"";
+        String acualmaleChecked=rpage.GetValesMessage();
+        Assert.assertEquals(acualmaleChecked,expectedradiobuttonchecked);
 
 
     }
@@ -73,7 +76,7 @@ public class RadioButtonValidation extends BaseClass {
         rpage.ClickonGetvalues();
         String expectedradiobuttonchecked="Sex : "+gender+"\n" + "Age group: "+agegroup+"";
         String actualradiobuttonchecked=rpage.GetValesMessage();
-       // Assert.assertEquals(actualradiobuttonchecked,expectedradiobuttonchecked);
+        Assert.assertEquals(actualradiobuttonchecked,expectedradiobuttonchecked);
         Assert.assertTrue(actualradiobuttonchecked.contains(gender));
         Assert.assertTrue(actualradiobuttonchecked.contains(agegroup));
 
@@ -85,11 +88,14 @@ public class RadioButtonValidation extends BaseClass {
         shomepage.ClickonNavmenuitem("Input Forms");
         shomepage.ClickonInputformitem("Radio Buttons Demo");
         Assert.assertTrue(rpage.VerifyRadiobutton("Radio Button Demo"),"Radio button" + " page is not displyed");
-        rpage.ClickonButton("Male");
-        rpage.ClickonAgegroup("5 - 15");
+        String gender="Male";
+        String agegroup="5 - 15";
+        rpage.ClickonButton(gender);
+        rpage.ClickonAgegroup(agegroup);
         rpage.ClickonGetvalues();
-       // String actualmalechecked=rpage.GetValesMessage("Male,5-15");
-       // Assert.assertEquals("Radio button 'Male'and age group '5-15' is checked",actualmalechecked);
+        String expectedradiobuttonchecked="Sex : "+gender+"\n" + "Age group: "+agegroup+"";
+        String actualmalechecked=rpage.GetValesMessage();
+        Assert.assertEquals(actualmalechecked,expectedradiobuttonchecked);
     }
     @Test
     public void GroupRadiobuttonFemale1(){
@@ -98,11 +104,14 @@ public class RadioButtonValidation extends BaseClass {
         shomepage.ClickonNavmenuitem("Input Forms");
         shomepage.ClickonInputformitem("Radio Buttons Demo");
         Assert.assertTrue(rpage.VerifyRadiobutton("Radio Button Demo"),"Radio button" + " page is not displyed");
-        rpage.ClickonButton("Female");
-        rpage.ClickonAgegroup("5 - 15");
+        String gender="Female";
+        String agegroup="5 - 15";
+        rpage.ClickonButton(gender);
+        rpage.ClickonAgegroup(agegroup);
         rpage.ClickonGetvalues();
-       // String actualFemalemalechecked=rpage.GetValesMessage("Male");
-        //Assert.assertEquals("Radio button 'Female'and age group '5-15' is checked",actualFemalemalechecked);
+        String expectedradiobuttonchecked="Sex : "+gender+"\n" + "Age group: "+agegroup+"";
+        String actualFemalemalechecked=rpage.GetValesMessage();
+        Assert.assertEquals(actualFemalemalechecked,expectedradiobuttonchecked);
     }
     @Test
     public void GroupRadiobuttonMale2(){
@@ -111,11 +120,14 @@ public class RadioButtonValidation extends BaseClass {
         shomepage.ClickonNavmenuitem("Input Forms");
         shomepage.ClickonInputformitem("Radio Buttons Demo");
         Assert.assertTrue(rpage.VerifyRadiobutton("Radio Button Demo"),"Radio button" + " page is not displyed");
-        rpage.ClickonButton("Male");
-        rpage.ClickonAgegroup("15 - 50");
+        String gender="Male";
+        String agegroup="15 - 50";
+        rpage.ClickonButton(gender);
+        rpage.ClickonAgegroup(agegroup);
         rpage.ClickonGetvalues();
-       // String actualmalechecked=rpage.GetValesMessage("Male");
-        //Assert.assertEquals("Radio button 'Female'and age group '5-15' is checked",actualmalechecked);
+        String expectedradiobuttonchecked="Sex : "+gender+"\n" + "Age group: "+agegroup+"";
+        String actualmalechecked=rpage.GetValesMessage();
+        Assert.assertEquals(actualmalechecked,expectedradiobuttonchecked);
     }
     @Test
     public void GroupRadiobuttonFemale2(){
@@ -124,11 +136,14 @@ public class RadioButtonValidation extends BaseClass {
         shomepage.ClickonNavmenuitem("Input Forms");
         shomepage.ClickonInputformitem("Radio Buttons Demo");
         Assert.assertTrue(rpage.VerifyRadiobutton("Radio Button Demo"),"Radio button" + " page is not displyed");
-        rpage.ClickonButton("Female");
-        rpage.ClickonAgegroup("15 - 50");
+        String gender="Female";
+        String agegroup="15 - 50";
+        rpage.ClickonButton(gender);
+        rpage.ClickonAgegroup(agegroup);
         rpage.ClickonGetvalues();
-       // String actualFemalechecked=rpage.GetValesMessage("Female:15-50");
-       // Assert.assertEquals("Radio button 'Female'and age group '15-50' is checked",actualFemalechecked);
+        String expectedradiobuttonchecked="Sex : "+gender+"\n" + "Age group: "+agegroup+"";
+        String actualFemalechecked=rpage.GetValesMessage();
+        Assert.assertEquals(actualFemalechecked,expectedradiobuttonchecked);
 
     }
 }

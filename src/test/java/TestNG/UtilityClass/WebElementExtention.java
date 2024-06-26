@@ -38,6 +38,9 @@ public class WebElementExtention {
     public void EnterText(String xpath,String text){
         Getwebelement(xpath).sendKeys(text);
     }
+    public void EnterDynamicText(String xpath,String text){
+        GetDynamicWebelement(xpath,text).sendKeys(text);
+    }
     public WebElement GetDynamicWebelement(String xpath,String text){
         xpath=xpath.replace("%s",text);
         return driver.findElement(By.xpath(xpath));
@@ -51,6 +54,11 @@ public class WebElementExtention {
         WebElement testDropDown =Getwebelement(xpath);
         Select dropdown = new Select(testDropDown);
         dropdown.selectByValue(value);
+    }
+    public void SelectDropdownOptionByIndex(String xpath,String index){
+        WebElement testDropDown =Getwebelement(xpath);
+        Select dropdown = new Select(testDropDown);
+        dropdown.selectByValue(index);
     }
     public List<String> GetDropdownitems(String xpath){
         WebElement testDropDown = Getwebelement(xpath);

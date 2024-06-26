@@ -23,7 +23,62 @@ public class DropDownValidation extends BaseClass {
         shomepage.ClickonNavmenuitem("Input Forms");
         shomepage.ClickonInputformitem("Select Dropdown List");
         Assert.assertTrue(dpage.VerifySelectList("Select List Demo"),"Dropdown page is not displayed");
-        // dpage.SelectaDay("Wednesday","Tuesday");
+        String day="Monday";
+        dpage.SelectDropdownOption(day);
+        String expectedmessage="Day selected :- "+day+"";
+        String actualmessage=dpage.SelectedOption();
+        Assert.assertEquals(actualmessage,expectedmessage);
+
+    }
+    @Test
+    public void SelectedListItems(){
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Input Forms");
+        shomepage.ClickonInputformitem("Select Dropdown List");
+        Assert.assertTrue(dpage.VerifySelectList("Select List Demo"),"Dropdown page is not displayed");
+        System.out.println(dpage.GetDropdownList());
+        System.out.println("No.of days present in list is "+dpage.GetDropdownList().size());
+
+    }
+    @Test
+    public void MultiSelectListValidation(){
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Input Forms");
+        shomepage.ClickonInputformitem("Select Dropdown List");
+        Assert.assertTrue(dpage.VerifySelectList("Select List Demo"),"Dropdown page is not displayed");
+        String state="California";
+        dpage.SelectState(state);
+        dpage.ClickOnFirstSelected();
+        String expectedSelectState="First selected option is : "+state+"";
+        String actualSelectState=dpage.GetFirstSelectedOption();
+        Assert.assertEquals(actualSelectState,expectedSelectState);
+
+    }
+    @Test
+    public void MultiSelectListValidation1(){
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Input Forms");
+        shomepage.ClickonInputformitem("Select Dropdown List");
+        Assert.assertTrue(dpage.VerifySelectList("Select List Demo"),"Dropdown page is not displayed");
+        String state="Texas";
+        dpage.SelectState(state);
+        dpage.ClickOnGetAllSelected();
+        String expectedGetAllSelectedstate="Options selected are : "+state+"";
+        String actualGetAllSelectedstate=dpage.OptionsSelected();
+        Assert.assertEquals(actualGetAllSelectedstate,expectedGetAllSelectedstate);
+    }
+    @Test
+    public void AllDropdownItems(){
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Input Forms");
+        shomepage.ClickonInputformitem("Select Dropdown List");
+        Assert.assertTrue(dpage.VerifySelectList("Select List Demo"),"Dropdown page is not displayed");
+        System.out.println(dpage.GetDropdownList2());
+        System.out.println("No.of states present in list is "+dpage.GetDropdownList2().size());
 
     }
 }
