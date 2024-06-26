@@ -17,8 +17,9 @@ public class DropDownForm extends WebElementExtention {
     private String firstSelectedxpath="//button[text()='First Selected']";
     private String firstSelectedOptionxpath="//p[text()='First selected option is : California']";
     private String getAllSelectedxpath="//button[text()='Get All Selected']";
-    private String optionsSelectedxpath="//p[text()='Options selected are : Texas']";
+    private String optionsSelectedxpath="//p[@class='getall-selected']";
     private String multiselectxpath="//select[@id='multi-select']";
+    private String verifyOptionsSelectedxpath="//p[text()='Options selected are : %s']";
 
     public DropDownForm(WebDriver driver) {
         super(driver);
@@ -51,6 +52,10 @@ public class DropDownForm extends WebElementExtention {
     }
     public String OptionsSelected(){
         return GetText(optionsSelectedxpath);
+    }
+    public boolean VerifySelectedOption(String text)
+    {
+         return VerifyDynamicWebelement(verifyOptionsSelectedxpath,text);
     }
     public List<String> GetDropdownList2(){
         return GetDropdownitems(multiselectxpath);

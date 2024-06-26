@@ -2,10 +2,13 @@ package TestNG.UtilityClass;
 
 import TestNG.BaseClass;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,9 +74,47 @@ public class WebElementExtention {
         }
         return items;
     }
+
+    public List<String> GetDropdownDiasbleditems(String xpath){
+        WebElement testDropDown = Getwebelement(xpath);
+        Select dropdown = new Select(testDropDown);
+        List<WebElement> alloptions=dropdown.getOptions();
+        List<String> items=new ArrayList<>();
+        for(int i=0;i<=alloptions.size()-1;i++){
+            String disabled=alloptions.get(i).getAttribute("aria-disabled");
+            if(disabled.equals("true")){
+                String text=alloptions.get(i).getText();
+                items.add(text);
+            }
+
+        }
+        return items;
+    }
+
+    public List<String> GetDropdownEnableditems(String xpath){
+        WebElement testDropDown = Getwebelement(xpath);
+        Select dropdown = new Select(testDropDown);
+        List<WebElement> alloptions=dropdown.getOptions();
+        List<String> items=new ArrayList<>();
+        for(int i=0;i<=alloptions.size()-1;i++){
+            String disabled=alloptions.get(i).getAttribute("aria-disabled");
+            if(disabled.equals("")){
+                String text=alloptions.get(i).getText();
+                items.add(text);
+            }
+
+        }
+        return items;
+    }
     public void SelectDropdownOptionByIndex(String xpath,int index){
         WebElement testDropDown =Getwebelement(xpath);
         Select dropdown = new Select(testDropDown);
         dropdown.selectByIndex(index);
+    }
+
+    public void PressControlFromKeyaboard()
+    {
+        Actions builder=new Actions(driver);
+        builder.sendKeys(Keys.CONTROL);
     }
 }

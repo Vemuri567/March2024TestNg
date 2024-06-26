@@ -6,6 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class DropDownValidation extends BaseClass {
     LoginPage lpage;
     SeleniumEasyHomePage shomepage;
@@ -31,14 +33,18 @@ public class DropDownValidation extends BaseClass {
 
     }
     @Test
-    public void SelectedListItems(){
+    public void GetAllOptions(){
         lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
         Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
         shomepage.ClickonNavmenuitem("Input Forms");
         shomepage.ClickonInputformitem("Select Dropdown List");
         Assert.assertTrue(dpage.VerifySelectList("Select List Demo"),"Dropdown page is not displayed");
-        System.out.println(dpage.GetDropdownList());
-        System.out.println("No.of days present in list is "+dpage.GetDropdownList().size());
+        List<String> allOptions=dpage.GetDropdownList();
+        System.out.println("No.of days present in list is "+allOptions.size());
+        for(String option:allOptions)
+        {
+            System.out.println(option);
+        }
 
     }
     @Test
@@ -69,6 +75,7 @@ public class DropDownValidation extends BaseClass {
         String expectedGetAllSelectedstate="Options selected are : "+state+"";
         String actualGetAllSelectedstate=dpage.OptionsSelected();
         Assert.assertEquals(actualGetAllSelectedstate,expectedGetAllSelectedstate);
+        //Assert.assertTrue(dpage.VerifySelectedOption(state));
     }
     @Test
     public void AllDropdownItems(){

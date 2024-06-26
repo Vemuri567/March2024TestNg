@@ -26,22 +26,22 @@ public class InputFormSubmition extends WebElementExtention {
         return VerifyWebElement(inputFormWithValidationxpath);
     }
     public void FirstnName(String name){
-        EnterDynamicText(firstnamexpath,name);
+        EnterText(firstnamexpath,name);
     }
     public void LastName(String name){
-        EnterDynamicText(lastnamexpath,name);
+        EnterText(lastnamexpath,name);
     }
     public void EmailAdd(String email){
-        EnterDynamicText(emailxpath,email);
+        EnterText(emailxpath,email);
     }
     public void Phone(String phone){
-        EnterDynamicText(phonexpath,phone);
+        EnterText(phonexpath,phone);
     }
     public void Address(String address){
-        EnterDynamicText(addressxpath,address);
+        EnterText(addressxpath,address);
     }
     public void City(String city){
-        EnterDynamicText(cityxpath,city);
+        EnterText(cityxpath,city);
     }
     public void SelectState(String state){
         SelectDropdownOptionByVisibletext(statexpath,state);
