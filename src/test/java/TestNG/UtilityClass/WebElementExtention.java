@@ -26,8 +26,10 @@ public class WebElementExtention {
     public boolean VerifyDynamicWebelement(String xpath,String text){
         return GetDynamicWebelement(xpath,text).isDisplayed();
     }
-    public void ClickonWebElement(String xpath){
+    public void ClickonWebElement(String xpath)
+    {
         Getwebelement(xpath).click();
+
     }
     public String GetText(String xpath){
         return Getwebelement(xpath).getText();

@@ -22,44 +22,57 @@ public class InputFormSubmition extends WebElementExtention {
         super(driver);
         this.driver=driver;
     }
-    public boolean VerifyInputformSubmition(String text){
+    public boolean VerifyInputformSubmition(String text)
+    {
         return VerifyWebElement(inputFormWithValidationxpath);
+
     }
-    public void FirstnName(String name){
+    public void FirstnName(String name)
+    {
         EnterText(firstnamexpath,name);
     }
-    public void LastName(String name){
+    public void LastName(String name)
+    {
         EnterText(lastnamexpath,name);
     }
-    public void EmailAdd(String email){
+    public void EmailAdd(String email)
+    {
         EnterText(emailxpath,email);
     }
-    public void Phone(String phone){
+    public void Phone(String phone)
+    {
         EnterText(phonexpath,phone);
     }
-    public void Address(String address){
+    public void Address(String address)
+    {
         EnterText(addressxpath,address);
     }
-    public void City(String city){
+    public void City(String city)
+    {
         EnterText(cityxpath,city);
     }
     public void SelectState(String state){
         SelectDropdownOptionByVisibletext(statexpath,state);
 
     }
-    public void ZipCode(String zipcode){
+    public void ZipCode(String zipcode)
+    {
         EnterDynamicText(zipxpath,zipcode);
     }
-    public void WebsiteorDomaineName(String domain){
+    public void WebsiteorDomaineName(String domain)
+    {
         EnterDynamicText(websitexpath,domain);
     }
-    public void HostingRadiobutton(){
+    public void HostingRadiobutton()
+    {
         ClickonWebElement(hostingxpath);
     }
-    public void ProjectDescription(String project){
+    public void ProjectDescription(String project)
+    {
         EnterDynamicText(projectdiscriptionxpath,project);
     }
-    public void ClickOnSendButton(){
+    public void ClickOnSendButton()
+    {
         ClickonWebElement(sendbuttonxpath);
     }
 }
