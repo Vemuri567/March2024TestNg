@@ -32,10 +32,10 @@ public class JqueryValidations extends BaseClass {
         shomepage.ClickonNavmenuitem("Input Forms");
         shomepage.ClickonInputformitem("JQuery Select dropdown");
         Assert.assertTrue(jqpage.VerifyJqueryPageLoaded(),"jqueryDropdown Page is not displayed");
-        String country="Australia";
-        jqpage.SelectCountryWithSearchOption(country);
+        String expectedcountry="Australia";
+        jqpage.SelectCountryWithSearchOption(expectedcountry);
         String selectedCountry=jqpage.GetSelectedOption();
-        Assert.assertEquals(selectedCountry,country);
+        Assert.assertEquals(selectedCountry,expectedcountry);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class JqueryValidations extends BaseClass {
         {
             String secondItem=enabledTerriotries.get(1);
             jqpage.SelectTerriotiry(secondItem);
-            Assert.assertEquals(secondItem,jqpage.GetSelectedTerriotiryOption());
+            Assert.assertEquals(jqpage.GetSelectedTerriotiryOption(),secondItem);
         }
         else
         {
