@@ -4,6 +4,11 @@ import TestNG.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class WebElementExtention {
     WebDriver driver;
     public WebElementExtention(WebDriver driver){
@@ -37,8 +42,31 @@ public class WebElementExtention {
         xpath=xpath.replace("%s",text);
         return driver.findElement(By.xpath(xpath));
     }
-    public void ClickonDropdown(String xpath,String text){
-        Getwebelement(xpath).isSelected();
+    public void SelectDropdownOptionByVisibletext(String xpath,String option){
+        WebElement testDropDown =Getwebelement(xpath);
+        Select dropdown = new Select(testDropDown);
+        dropdown.selectByVisibleText(option);
+    }
+    public void SelectDropdownOptionByValue(String xpath,String value){
+        WebElement testDropDown =Getwebelement(xpath);
+        Select dropdown = new Select(testDropDown);
+        dropdown.selectByValue(value);
+    }
+    public List<String> GetDropdownitems(String xpath){
+        WebElement testDropDown = Getwebelement(xpath);
+        Select dropdown = new Select(testDropDown);
+        List<WebElement> alloptions=dropdown.getOptions();
+        List<String> items=new ArrayList<>();
+        for(int i=0;i<=alloptions.size()-1;i++){
+            String text=alloptions.get(i).getText();
+            items.add(text);
+        }
+        return items;
+    }
+    public void SelectDropdownOptionByIndex(String xpath,int index){
+        WebElement testDropDown =Getwebelement(xpath);
+        Select dropdown = new Select(testDropDown);
+        dropdown.selectByIndex(index);
     }
 
     public void ClearInputFields(String xpath)

@@ -12,6 +12,7 @@ public class CheckboxForm extends WebElementExtention {
     private String unCheckallxpath="//input[@value='Uncheck All']";
     private String SuccessMessagexpath="//div[text()='Success - Check box is checked']";
     private  String defaultCheckedxpath="//input[@checked and not(@disabled)]";
+    private String defaultdisabledxpath="//input[@checked and @disabled]";
     private String Optionsxpath="//label[text()='%s']//input";
     public CheckboxForm(WebDriver driver){
         super(driver);
@@ -42,6 +43,9 @@ public class CheckboxForm extends WebElementExtention {
     public boolean VerifyDefaultChecked()
     {
         return VerifyWebElement(defaultCheckedxpath);
+    }
+    public  boolean VerifyDefaultDisabled(){
+        return VerifyWebElement(defaultdisabledxpath);
     }
     public boolean VerifySuccessCheckbox()
     {

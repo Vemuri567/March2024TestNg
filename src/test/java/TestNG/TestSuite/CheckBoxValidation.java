@@ -37,6 +37,16 @@ public class CheckBoxValidation extends BaseClass {
         cpage.ClickonCheckbox();
         Assert.assertTrue(cpage.VerifySuccessCheckbox());
     }
+    @Test
+    public void VerifyDefaultDisabled(){
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Input Forms");
+        shomepage.ClickonInputformitem("Checkbox Demo");
+        Assert.assertTrue(cpage.VerifySingleCheckboxDemo("Single Checkbox Demo"),"checkbox page is not displayed");
+        cpage.VerifyDefaultDisabled();
+        Assert.assertTrue(cpage.VerifyDefaultDisabled());
+    }
 
     @Test
     public void VerifyCheckAll()
@@ -48,12 +58,34 @@ public class CheckBoxValidation extends BaseClass {
         Assert.assertTrue(cpage.VerifySingleCheckboxDemo("Single Checkbox Demo"),"checkbox page is not displayed");
         cpage.ClickonCheckAll();
         Assert.assertTrue(cpage.VerifyUnCheckAll());
-        cpage.ClickOnUncheckAll();
-        Assert.assertTrue(cpage.VerifyCheckAll());
         cpage.ClickonCheckAll();
         Assert.assertTrue(cpage.VerifyUnCheckAll());
-        cpage.SelectOption("Option 1");
+    }
+    @Test
+    public void VerifyUncheckAll(){
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Input Forms");
+        shomepage.ClickonInputformitem("Checkbox Demo");
+        Assert.assertTrue(cpage.VerifySingleCheckboxDemo("Single Checkbox Demo"),"checkbox page is not displayed");
+        cpage.ClickOnUncheckAll();
         Assert.assertTrue(cpage.VerifyCheckAll());
     }
+    @Test
+    public void VerifyOptionsUnchecktoCheck(){
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Input Forms");
+        shomepage.ClickonInputformitem("Checkbox Demo");
+        Assert.assertTrue(cpage.VerifySingleCheckboxDemo("Single Checkbox Demo"), "checkbox page is not displayed");
+        cpage.SelectOption("Option 1");
+        Assert.assertTrue(cpage.VerifyCheckAll());
+        cpage.SelectOption("Option 2");
+        Assert.assertTrue(cpage.VerifyCheckAll());
+        cpage.SelectOption("Option 3");
+        Assert.assertTrue(cpage.VerifyCheckAll());
+
+    }
+
 
 }
