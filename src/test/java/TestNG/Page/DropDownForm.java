@@ -12,7 +12,7 @@ public class DropDownForm extends WebElementExtention {
     WebDriver driver;
     private String Selectlistxpath = "//div[text()='Select List Demo']";
     private String daydropdownxpath = "//select[@id='select-demo']";
-    private String daySelectedxpath="//p[text()='Day selected :- Monday']";
+    private String daySelectedxpath="//p[@class='selected-value']";
     private String multiselectedxpath="//select[@id='multi-select']";
     private String firstSelectedxpath="//button[text()='First Selected']";
     private String firstSelectedOptionxpath="//p[text()='First selected option is : California']";

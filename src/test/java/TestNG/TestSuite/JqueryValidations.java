@@ -38,7 +38,8 @@ public class JqueryValidations extends BaseClass {
         Assert.assertEquals(selectedCountry,expectedcountry);
     }
 
-    @Test
+
+   @Test
     public void SelectEnabledItemFromTerriotiryDropdwon()
     {
         lpage.NavigateToUrl("https://demo.seleniumeasy.com/");

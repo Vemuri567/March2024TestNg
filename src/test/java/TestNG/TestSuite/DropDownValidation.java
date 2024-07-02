@@ -27,9 +27,9 @@ public class DropDownValidation extends BaseClass {
         Assert.assertTrue(dpage.VerifySelectList("Select List Demo"),"Dropdown page is not displayed");
         String day="Monday";
         dpage.SelectDropdownOption(day);
-        String expectedmessage="Day selected :- "+day+"";
+        //String expectedmessage="Day selected :- "+day+"";
         String actualmessage=dpage.SelectedOption();
-        Assert.assertEquals(actualmessage,expectedmessage);
+        Assert.assertEquals(actualmessage,day);
 
     }
     @Test
@@ -84,8 +84,12 @@ public class DropDownValidation extends BaseClass {
         shomepage.ClickonNavmenuitem("Input Forms");
         shomepage.ClickonInputformitem("Select Dropdown List");
         Assert.assertTrue(dpage.VerifySelectList("Select List Demo"),"Dropdown page is not displayed");
-        System.out.println(dpage.GetDropdownList2());
+        List<String> alloptions=dpage.GetDropdownList2();
         System.out.println("No.of states present in list is "+dpage.GetDropdownList2().size());
+        for(String option:alloptions)
+        {
+            System.out.println(option);
+        }
 
     }
 }
