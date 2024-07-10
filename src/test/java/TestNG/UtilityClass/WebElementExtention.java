@@ -117,4 +117,18 @@ public class WebElementExtention {
         Actions builder=new Actions(driver);
         builder.sendKeys(Keys.CONTROL);
     }
+
+    public void ClearInputFields(String xpath)
+    {
+        Getwebelement(xpath).clear();
+    }
+
+    public String GetAttributeValue(String xpath,String name)
+    {
+        return Getwebelement(xpath).getAttribute(name);
+    }
+    public String GetAttributeValue(WebElement element,String name)
+    {
+        return element.getAttribute(name);
+    }
 }
