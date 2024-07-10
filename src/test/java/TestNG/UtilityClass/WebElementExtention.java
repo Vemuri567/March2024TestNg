@@ -32,6 +32,9 @@ public class WebElementExtention {
     public String GetText(String xpath){
         return Getwebelement(xpath).getText();
     }
+    public String GetText(WebElement ele){
+        return ele.getText();
+    }
     public String GetTextForDynamicXpath(String xpath,String text){
         return GetDynamicWebelement(xpath,text).getText();
     }
