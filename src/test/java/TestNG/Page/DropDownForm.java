@@ -15,7 +15,7 @@ public class DropDownForm extends WebElementExtention {
     private String daySelectedxpath="//p[@class='selected-value']";
     private String multiselectedxpath="//select[@id='multi-select']";
     private String firstSelectedxpath="//button[text()='First Selected']";
-    private String firstSelectedOptionxpath="//p[text()='First selected option is : California']";
+    private String firstSelectedOptionxpath="//p[@class='getall-selected']";
     private String getAllSelectedxpath="//button[text()='Get All Selected']";
     private String optionsSelectedxpath="//p[@class='getall-selected']";
     private String multiselectxpath="//select[@id='multi-select']";

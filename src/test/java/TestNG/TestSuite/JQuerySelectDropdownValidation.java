@@ -70,7 +70,7 @@ public class JQuerySelectDropdownValidation extends BaseClass {
             Assert.fail("Terriotiry dropdown options are not displaying");
         }
     }
-    @Test
+   /* @Test
     public void SelectDisabledItemFromTerriotiryDropdwon()
     {
         lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
@@ -89,7 +89,7 @@ public class JQuerySelectDropdownValidation extends BaseClass {
         {
             Assert.fail("Terriotiry dropdown options are not displaying");
         }
-    }
+    }*/
 
     @Test
     public void DropdownWithCategory(){

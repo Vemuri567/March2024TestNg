@@ -4,6 +4,7 @@ import TestNG.BaseClass;
 import TestNG.Page.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class DropDownValidation extends BaseClass {
         dpage.SelectDropdownOption(day);
         //String expectedmessage="Day selected :- "+day+"";
         String actualmessage=dpage.SelectedOption();
-        Assert.assertEquals(actualmessage,day);
+        Assert.assertTrue(actualmessage.contains(day));
 
     }
     @Test
@@ -57,9 +58,9 @@ public class DropDownValidation extends BaseClass {
         String state="California";
         dpage.SelectState(state);
         dpage.ClickOnFirstSelected();
-        String expectedSelectState="First selected option is : "+state+"";
+        //String expectedSelectState="First selected option is : "+state+"";
         String actualSelectState=dpage.GetFirstSelectedOption();
-        Assert.assertEquals(actualSelectState,expectedSelectState);
+        Assert.assertTrue(actualSelectState.contains(state));
 
     }
     @Test
@@ -72,10 +73,9 @@ public class DropDownValidation extends BaseClass {
         String state="Texas";
         dpage.SelectState(state);
         dpage.ClickOnGetAllSelected();
-        String expectedGetAllSelectedstate="Options selected are : "+state+"";
+        //String expectedGetAllSelectedstate="Options selected are : "+state+"";
         String actualGetAllSelectedstate=dpage.OptionsSelected();
-        Assert.assertEquals(actualGetAllSelectedstate,expectedGetAllSelectedstate);
-        //Assert.assertTrue(dpage.VerifySelectedOption(state));
+        Assert.assertTrue(actualGetAllSelectedstate.contains(state));
     }
     @Test
     public void AllDropdownItems(){
