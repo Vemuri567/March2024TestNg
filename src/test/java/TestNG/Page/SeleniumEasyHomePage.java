@@ -20,4 +20,7 @@ public class SeleniumEasyHomePage extends WebElementExtention {
     public void ClickonInputformitem(String menuitem){
         ClickonDynamicWebElement(Inputformitemsxpath,menuitem);
    }
+    public void ClickonTableitem(String menuitem){
+        ClickonDynamicWebElement(Inputformitemsxpath,menuitem);
+    }
 }

@@ -34,6 +34,9 @@ public class WebElementExtention {
     public String GetText(String xpath){
         return Getwebelement(xpath).getText();
     }
+    public String GetText(WebElement element){
+        return element.getText();
+    }
     public String GetTextForDynamicXpath(String xpath,String text){
         return GetDynamicWebelement(xpath,text).getText();
     }
@@ -137,4 +140,78 @@ public class WebElementExtention {
     public String GetAttributeValue(WebElement element, String name){
         return element.getAttribute(name);
     }
+    public int HeaderColumnsCount(String headersxpath)
+    {
+        List<WebElement> headerColumns=driver.findElements(By.xpath(headersxpath));
+        return headerColumns.size();
+    }
+    public List<String> GetAllColumnHeaderValues(String headersxpath)
+    {
+        List<String> columnValues=new ArrayList<String>();
+        List<WebElement> headerColumns=driver.findElements(By.xpath(headersxpath));
+        for(WebElement column:headerColumns)
+        {
+            String text=GetText(column);
+            columnValues.add(text);
+        }
+
+        return columnValues;
+    }
+    public int GetColumnIndex(String columnName,String headersxpath) throws Exception {
+        int index=0;
+
+        List<WebElement> headerColumns=driver.findElements(By.xpath(headersxpath));
+        for(int i=0;i<=headerColumns.size()-1;i++)
+        {
+            String text=GetText(headerColumns.get(i));
+            if(text.equals(columnName))
+            {
+                index=i+1;
+                break;
+            }
+        }
+        if(index==0)
+        {
+            throw new Exception(columnName+" is not available in the table");
+        }
+        return index;
+    }
+    public List<String> GetAllRowsValues(String xpath,String columnName,String headersxpath) throws Exception {
+        int index=GetColumnIndex(columnName,headersxpath);
+        xpath=xpath.replace("%s",String.valueOf(index));
+        List<WebElement> allRowValues=driver.findElements(By.xpath(xpath));
+        List<String> rowValues=new ArrayList<String>();
+        for(WebElement row:allRowValues)
+        {
+            String text=GetText(row);
+            rowValues.add(text);
+        }
+
+        return  rowValues;
+    }
+    public String GetRowValueByIndex(int rowno,String columnName,String headersxpath) throws Exception {
+        int columnindex=GetColumnIndex(columnName,headersxpath);
+        String xpath="//table[@id='task-table']//tbody/tr["+rowno+"]//td["+columnindex+"]";
+        WebElement rowValue=driver.findElement(By.xpath(xpath));
+        String text=GetText(rowValue);
+        return text;
+    }
+    public int GetRowNoForMatchingDependentColumnValue(String dependentColumn,String expectedValue,String xpath,String headersxpath) throws Exception {
+        int requiredRowNo=0;
+        int index=GetColumnIndex(dependentColumn,headersxpath);
+        xpath=xpath.replace("%s",String.valueOf(index));
+        List<WebElement> allRowValues=driver.findElements(By.xpath(xpath));
+        for(int rowno=0;rowno<=allRowValues.size()-1;rowno++)
+        {
+            String text=GetText(allRowValues.get(rowno));
+            if(text.equals(expectedValue))
+            {
+                requiredRowNo=rowno+1;
+                break;
+            }
+
+        }
+        return  requiredRowNo;
+    }
+
 }

@@ -19,8 +19,8 @@ public class BaseClass {
         return driver;
     }
 
-    @AfterClass
+    /*@AfterClass
     public void Afterclass(){
         driver.quit();
-    }
+    }*/
 }
