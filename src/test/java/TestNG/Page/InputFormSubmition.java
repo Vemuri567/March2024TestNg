@@ -53,7 +53,6 @@ public class InputFormSubmition extends WebElementExtention {
     }
     public void SelectState(String state){
         SelectDropdownOptionByVisibletext(statexpath,state);
-
     }
     public void ZipCode(String zipcode)
     {
