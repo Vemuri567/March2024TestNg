@@ -39,13 +39,11 @@ public class TableDataSearchValidations extends BaseClass {
         Assert.assertEquals(actual,expected);*/
         List<String> expectedColumnHeaders = new ArrayList<String>(Arrays.asList("#", "Task", "Assignee", "Status"));
         List<String> actualColumnHeaders = tpage.GetAllColumnHeaderValues();
-        Assert.assertTrue(expectedColumnHeaders.equals(actualColumnHeaders));
-
-
-    }
+        Assert.assertTrue(expectedColumnHeaders.equals(actualColumnHeaders),"expected coloumn headers:"+expectedColumnHeaders+" and actual column headers:"+actualColumnHeaders);
 }
-    /*@Test
-    public void GetAllRowValues() throws Exception {
+
+    @Test
+    public void GetAllRowValuesforspecificcolumn() throws Exception {
         lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
         Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
         shomepage.ClickonNavmenuitem("Table");
@@ -57,6 +55,19 @@ public class TableDataSearchValidations extends BaseClass {
             System.out.println(values);
         }
 
+    }
+
+    @Test
+    public void VerifyAscendingorderforspecificcolumnvalues() throws Exception {
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Table");
+        shomepage.ClickonTableitem("Table Sort & Search");
+        Assert.assertTrue(tpage.Verifysortedtablepage(),"Table Data Search page is not displayed");
+        List<String> rows=tpage.GetAllRowsValuesfortablesort("Name");
+        System.out.println("total rows:"+rows.size());
+        boolean isascendingorder=tpage.VerifylistAscendingorder(rows);
+    Assert.assertTrue(isascendingorder,"actual values :"+rows);
     }
     @Test
     public void GetSpecificValueInTable() throws Exception {
@@ -78,4 +89,4 @@ public class TableDataSearchValidations extends BaseClass {
         //System.out.println(tdpage.RowNo("Status",));
     }
 }
-*/
+

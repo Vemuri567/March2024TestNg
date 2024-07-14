@@ -9,9 +9,13 @@ import java.util.*;
 
 public class Table extends WebElementExtention {
     WebDriver driver;
-    String headersxpath="//table//thead//th";
-    String rowsXpath="//table//tbody/tr";
-    String rowvaluesXpath="//table//tbody/tr//td[%s]";
+    String headersxpath="//table[@id='task-table']//thead//th";
+    String rowsXpath="//table[@id='task-table']//tbody/tr";
+    String rowvaluesXpath="//table[@id='task-table']//tbody/tr//td[%s]";
+    String sortedtablerowvaluesxpath="//table[@id='example']//tbody/tr//td[%s]";
+    String sorttablesheaderxpath="//table[@id='example']//thead//th";
+    String sorttablespecificcoloumnheaderxpath="//table[@id='example']//thead//th[text()='%s']";
+    String sortedtablexpath="//table[@id='example']";
     public Table(WebDriver driver) {
         super(driver);
         this.driver=driver;
@@ -36,6 +40,11 @@ public class Table extends WebElementExtention {
         return columnValues;
     }
 
+    public boolean Verifysortedtablepage()
+    {
+        return VerifyWebElement(sortedtablexpath);
+    }
+
     public int GetColumnIndex(String columnName) throws Exception {
         int index=0;
 
@@ -56,10 +65,44 @@ public class Table extends WebElementExtention {
         return index+1;
     }
 
+    public int GetColumnIndexforsorttable(String columnName) throws Exception {
+        int index=0;
+
+        List<WebElement> headerColumns=driver.findElements(By.xpath(sorttablesheaderxpath));
+        for(int i=0;i<=headerColumns.size()-1;i++)
+        {
+            String text=GetText(headerColumns.get(i));
+            if(text.equals(columnName))
+            {
+                index=i+1;
+                break;
+            }
+        }
+        if(index==0)
+        {
+            throw new Exception(columnName+" is not available in the table");
+        }
+        return index;
+    }
+
     public List<String> GetAllRowsValues(String columnName) throws Exception {
         int index=GetColumnIndex(columnName);
         rowvaluesXpath=rowvaluesXpath.replace("%s",String.valueOf(index));
         List<WebElement> allRowValues=driver.findElements(By.xpath(rowvaluesXpath));
+        List<String> rowValues=new ArrayList<String>();
+        for(WebElement row:allRowValues)
+        {
+            String text=GetText(row);
+            rowValues.add(text);
+        }
+
+        return  rowValues;
+    }
+
+    public List<String> GetAllRowsValuesfortablesort(String columnName) throws Exception {
+        int index=GetColumnIndexforsorttable(columnName);
+        sortedtablerowvaluesxpath=sortedtablerowvaluesxpath.replace("%s",String.valueOf(index));
+        List<WebElement> allRowValues=driver.findElements(By.xpath(sortedtablerowvaluesxpath));
         List<String> rowValues=new ArrayList<String>();
         for(WebElement row:allRowValues)
         {

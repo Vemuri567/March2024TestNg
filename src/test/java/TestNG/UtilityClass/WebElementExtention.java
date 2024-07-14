@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class WebElementExtention {
@@ -213,5 +214,41 @@ public class WebElementExtention {
         }
         return  requiredRowNo;
     }
+public boolean VerifylistAscendingorder(List<String> list)
+{
+    boolean isascendingorder=true;
+    for (int i=0;i<= list.size()-2;i++)
+    {
+        if(list.get(i).compareTo(list.get(i+1))>0)
+        {
+            isascendingorder=false;
+            break;
+        }
+    }
+    //second way to verify ascending order
+   /* List<String> sortedlist=new ArrayList<>(list);
+    Collections.sort(sortedlist);
+    return sortedlist.equals(list);*/
 
+    return isascendingorder;
+}
+public boolean VerifyDescendingorder(List<String> list)
+{
+    boolean isdescendingorder=true;
+    for (int i=0;i<= list.size()-1;i++)
+    {
+        if(list.get(i).compareTo(list.get(i+1))<0)
+        {
+            isdescendingorder=false;
+            break;
+        }
+    }
+    //second way to verify descending order
+    /*List<String> sortedlist=new ArrayList<>(list);
+    Collections.sort(sortedlist);
+    Collections.reverse(sortedlist);
+    return sortedlist.equals(list);*/
+
+    return isdescendingorder;
+}
 }
