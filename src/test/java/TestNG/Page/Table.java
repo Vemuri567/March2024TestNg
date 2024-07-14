@@ -16,6 +16,7 @@ public class Table extends WebElementExtention {
     String sorttablesheaderxpath="//table[@id='example']//thead//th";
     String sorttablespecificcoloumnheaderxpath="//table[@id='example']//thead//th[text()='%s']";
     String sortedtablexpath="//table[@id='example']";
+    String searchxpath="//input[@type='search']";
     public Table(WebDriver driver) {
         super(driver);
         this.driver=driver;
@@ -43,6 +44,9 @@ public class Table extends WebElementExtention {
     public boolean Verifysortedtablepage()
     {
         return VerifyWebElement(sortedtablexpath);
+    }
+    public void Clickoncolumnheader(String columnname){
+        ClickonDynamicWebElement(sorttablespecificcoloumnheaderxpath,columnname);
     }
 
     public int GetColumnIndex(String columnName) throws Exception {
@@ -163,4 +167,9 @@ public class Table extends WebElementExtention {
         }
         return allRowValuesForMatchingColumn;
     }
+    public void searchbox(String columnname){
+        EnterText(searchxpath,columnname);
+    }
+
 }
+

@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class WebElementExtention {
     WebDriver driver;
@@ -19,6 +20,13 @@ public class WebElementExtention {
     }
     public WebElement Getwebelement(String xpath){
         return driver.findElement(By.xpath(xpath));
+    }
+    public List<WebElement> GetAllWebElements(String xpath) {
+        return driver.findElements(By.xpath(xpath));
+    }
+    public List<WebElement> GetAllDynamicWebElements(String xpath, String text) {
+        xpath=xpath.replace("%s",text);
+        return driver.findElements(By.xpath(xpath));
     }
     public boolean VerifyWebElement(String xpath){
         return Getwebelement(xpath).isDisplayed();
@@ -39,6 +47,34 @@ public class WebElementExtention {
     }
     public String GetText(String xpath){
         return Getwebelement(xpath).getText();
+    }
+    public List<String> GetAllElementsTextByUsingFindElements(String xpath) throws Exception {
+       List<WebElement> elements= GetAllWebElements(xpath);
+       //to verify count after calling getall webelements
+        //find elements method will return list of web elements if there is no elements in the application we will get count zero
+        if(elements.size()==0){
+            throw new Exception("webelement is not identified in the application for given xpath:"+ xpath);
+        }
+
+       List<String> list= new ArrayList<>();
+       for(WebElement ele:elements){
+           list.add(ele.getText());
+       }
+        return list;
+    }
+    public List<String> GetAllDynamicwebElementsTextByUsingFindElements(String xpath ,String text) throws Exception {
+        List<WebElement> elements= GetAllDynamicWebElements(xpath, text);
+        //to verify count after calling getall webelements
+        //find elements method will return list of web elements if there is no elements in the application we will get count zero
+        if(elements.size()==0){
+            throw new Exception("webelement is not identified in the application for given xpath:"+ xpath);
+        }
+
+        List<String> list= new ArrayList<>();
+        for(WebElement ele:elements){
+            list.add(ele.getText());
+        }
+        return list;
     }
     public String GetText(WebElement element){
         return element.getText();
@@ -240,7 +276,7 @@ public boolean VerifylistAscendingorder(List<String> list)
 public boolean VerifyDescendingorder(List<String> list)
 {
     boolean isdescendingorder=true;
-    for (int i=0;i<= list.size()-1;i++)
+    for (int i=0;i<= list.size()-2;i++)
     {
         if(list.get(i).compareTo(list.get(i+1))<0)
         {
@@ -248,6 +284,7 @@ public boolean VerifyDescendingorder(List<String> list)
             break;
         }
     }
+
     //second way to verify descending order
     /*List<String> sortedlist=new ArrayList<>(list);
     Collections.sort(sortedlist);
@@ -256,4 +293,15 @@ public boolean VerifyDescendingorder(List<String> list)
 
     return isdescendingorder;
 }
+public boolean AllItemsAreEqual(List<String> items,String compareItemName){
+     for(int i=0;i<=items.size()-1;i++){
+         if(!items.get(i).equals(compareItemName)){
+             return false;
+         }
+     }
+     return true;
+     //second way to verify alllistitems are equal or not
+    //return items.stream().allMatch(item-> Objects.equals(item,compareItemName));
+}
+
 }

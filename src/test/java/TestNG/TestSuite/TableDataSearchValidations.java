@@ -70,6 +70,59 @@ public class TableDataSearchValidations extends BaseClass {
     Assert.assertTrue(isascendingorder,"actual values :"+rows);
     }
     @Test
+    public void VerifyDescendingorderforspecificcolumnvalues() throws Exception {
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Table");
+        shomepage.ClickonTableitem("Table Sort & Search");
+        Assert.assertTrue(tpage.Verifysortedtablepage(),"Table Data Search page is not displayed");
+        tpage.Clickoncolumnheader("Name");
+        List<String> rows=tpage.GetAllRowsValuesfortablesort("Name");
+        System.out.println("total rows:"+rows.size());
+        boolean isdescendingorder=tpage.VerifyDescendingorder(rows);
+        Assert.assertTrue(isdescendingorder,"actual values :"+rows);
+    }
+    @Test
+    public void VerifyDescendingorderforspecificpositioncolumnvalues() throws Exception {
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Table");
+        shomepage.ClickonTableitem("Table Sort & Search");
+        Assert.assertTrue(tpage.Verifysortedtablepage(),"Table Data Search page is not displayed");
+        tpage.Clickoncolumnheader("Position");
+        tpage.Clickoncolumnheader("Position");
+        List<String> rows=tpage.GetAllRowsValuesfortablesort("Position");
+        System.out.println("total rows:"+rows.size());
+        boolean isdescendingorder=tpage.VerifyDescendingorder(rows);
+        Assert.assertTrue(isdescendingorder,"actual values :"+rows);
+    }
+    @Test
+    public void VerifyAscendingorderforspecificpositioncolumnvalues() throws Exception {
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Table");
+        shomepage.ClickonTableitem("Table Sort & Search");
+        Assert.assertTrue(tpage.Verifysortedtablepage(),"Table Data Search page is not displayed");
+        tpage.Clickoncolumnheader("Position");
+        List<String> rows=tpage.GetAllRowsValuesfortablesort("Position");
+        System.out.println("total rows:"+rows.size());
+        boolean isascendingorder=tpage.VerifylistAscendingorder(rows);
+        Assert.assertTrue(isascendingorder,"actual values :"+rows);
+    }
+    @Test
+    public void Verifyofficenameserachbox() throws Exception {
+        lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
+        Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
+        shomepage.ClickonNavmenuitem("Table");
+        shomepage.ClickonTableitem("Table Sort & Search");
+        Assert.assertTrue(tpage.Verifysortedtablepage(),"Table Data Search page is not displayed");
+        tpage.searchbox("New York");
+        List<String> rows=tpage.GetAllRowsValuesfortablesort("Office");
+        Assert.assertTrue(tpage.AllItemsAreEqual(rows,"New York"),"atualofficecolumnvalues:"+rows);
+    }
+
+
+    @Test
     public void GetSpecificValueInTable() throws Exception {
         lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
         Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
