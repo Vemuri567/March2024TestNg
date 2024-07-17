@@ -34,7 +34,7 @@ public class TablePaginationValidations extends BaseClass {
 
     }
     @Test
-    public void AllRowsValuesValidation() throws Exception {
+    public void AllColumnHeaderValues() throws Exception {
         lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
         Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"),"homepage is not displayed");
         shomepage.ClickonNavmenuitem("Table");

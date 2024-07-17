@@ -51,7 +51,6 @@ public class Table extends WebElementExtention {
 
     public int GetColumnIndex(String columnName) throws Exception {
         int index=0;
-
         List<WebElement> headerColumns=driver.findElements(By.xpath(headersxpath));
         for(int i=0;i<=headerColumns.size()-1;i++)
         {
@@ -66,7 +65,7 @@ public class Table extends WebElementExtention {
         {
             throw new Exception(columnName+" is not available in the table");
         }
-        return index+1;
+        return index;
     }
 
     public int GetColumnIndexforsorttable(String columnName) throws Exception {
@@ -120,7 +119,7 @@ public class Table extends WebElementExtention {
     public String GetRowValueByIndex(int rowno,String columnName) throws Exception {
         int columnindex=GetColumnIndex(columnName);
         String xpath="//table[@id='task-table']//tbody/tr["+rowno+"]//td["+columnindex+"]";
-        WebElement rowValue=driver.findElement(By.xpath(rowvaluesXpath));
+        WebElement rowValue=driver.findElement(By.xpath(xpath));
         String text=GetText(rowValue);
         return text;
     }

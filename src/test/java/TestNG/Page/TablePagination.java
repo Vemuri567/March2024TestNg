@@ -18,16 +18,20 @@ public class TablePagination extends WebElementExtention {
         super(driver);
         this.driver=driver;
     }
-    public boolean VerifyPagination(){
+    public boolean VerifyPagination()
+    {
         return VerifyWebElement(paginationxpath);
     }
-    public int GetAllHeaderColumnCount(){
+    public int GetAllHeaderColumnCount()
+    {
         return HeaderColumnsCount(headerCountxpath);
     }
-    public List<String> GetAllColumnHeadersName(){
+    public List<String> GetAllColumnHeadersName()
+    {
         return GetAllColumnHeaderValues(headerCountxpath);
     }
-    public void ClickOnNextButton(){
+    public void ClickOnNextButton()
+    {
         ClickonWebElement(nextPagexpath);
     }
 
@@ -66,3 +70,4 @@ public class TablePagination extends WebElementExtention {
 
 
 }
+
