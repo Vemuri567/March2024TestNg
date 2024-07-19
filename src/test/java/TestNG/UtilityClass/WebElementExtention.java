@@ -106,12 +106,21 @@ public class WebElementExtention {
         Select dropdown = new Select(testDropDown);
         dropdown.selectByValue(value);
     }
-    public String SelectDropdownOptionByIndex(String xpath, String index){
+    public void SelectDropdownOptionByIndex(String xpath, String index)
+    {
         WebElement testDropDown =Getwebelement(xpath);
         Select dropdown = new Select(testDropDown);
         dropdown.selectByValue(index);
-        return xpath;
     }
+
+    public String GetselectdropdownItem(String xpath){
+        Select dropdown = new Select(Getwebelement(xpath));
+        WebElement selectedoption= dropdown.getFirstSelectedOption();
+        String selectedtext= selectedoption.getText();
+        return selectedtext;
+    }
+
+
     public List<String> GetDropdownitems(String xpath){
         WebElement testDropDown = Getwebelement(xpath);
         Select dropdown = new Select(testDropDown);
@@ -186,6 +195,10 @@ public class WebElementExtention {
     {
         List<WebElement> headerColumns=driver.findElements(By.xpath(headersxpath));
         return headerColumns.size();
+    }
+    public int AllRowsCount(String xpath){
+        List<WebElement> rows=driver.findElements(By.xpath(xpath));
+        return  rows.size();
     }
     public List<String> GetAllColumnHeaderValues(String headersxpath)
     {
