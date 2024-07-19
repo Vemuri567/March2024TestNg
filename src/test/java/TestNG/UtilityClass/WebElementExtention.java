@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -317,4 +319,43 @@ public boolean AllItemsAreEqual(List<String> items,String compareItemName){
     //return items.stream().allMatch(item-> Objects.equals(item,compareItemName));
 }
 
+public boolean DatesAreInAscendingOrder(List<String> dates)
+{
+    DateTimeFormatter formatter=DateTimeFormatter.ofPattern("EEE d MMM yy");
+    LocalDate previousDate=null;
+    for(String datestr:dates)
+    {
+        String preprocessordatestr=datestr.replaceAll("(?<=\\d)(st|nd|rd|th)","");
+        LocalDate currentDate=LocalDate.parse(preprocessordatestr,formatter);
+        if(previousDate!=null&&currentDate.isBefore(previousDate))
+        {
+            return false;
+        }
+        previousDate=currentDate;
+    }
+
+    return true;
+
+}
+public boolean VerifySalariesAreInAscendingOrder(List<String> salaries)
+{
+    List<Integer> numericSalaries = new ArrayList<>();
+    for (String salary : salaries) {
+        numericSalaries.add(parseSalary(salary));
+    }
+    // Check if salaries are in ascending order
+    boolean isSorted = true;
+    for (int i = 0; i < numericSalaries.size() - 1; i++) {
+        if (numericSalaries.get(i) > numericSalaries.get(i + 1)) {
+            isSorted = false;
+            break;
+        }
+    }
+  return isSorted;
+}
+    private static int parseSalary(String salary) {
+        // Remove non-numeric characters and parse the integer
+        String numericString = salary.replaceAll("[^0-9]", "");
+        return Integer.parseInt(numericString);
+    }
 }

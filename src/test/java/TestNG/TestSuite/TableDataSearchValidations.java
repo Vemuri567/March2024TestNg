@@ -191,7 +191,7 @@ public class TableDataSearchValidations extends BaseClass {
         tpage.Clickoncolumnheader("Start date");
         List<String> rows = tpage.GetAllRowsValuesfortablesort("Start date");
         System.out.println("total rows:" + rows.size());
-        boolean isascendingorder = tpage.VerifylistAscendingorder(rows);
+        boolean isascendingorder = tpage.DatesAreInAscendingOrder(rows);
         Assert.assertTrue(isascendingorder, "actual values :" + rows);
     }
 
@@ -205,7 +205,7 @@ public class TableDataSearchValidations extends BaseClass {
         tpage.Clickoncolumnheader("Salary");
         List<String> rows = tpage.GetAllRowsValuesfortablesort("Salary");
         System.out.println("total rows:" + rows.size());
-        boolean isascendingorder = tpage.VerifylistAscendingorder(rows);
+        boolean isascendingorder = tpage.VerifySalariesAreInAscendingOrder(rows);
         Assert.assertTrue(isascendingorder, "actual values :" + rows);
     }
 
@@ -239,7 +239,7 @@ public class TableDataSearchValidations extends BaseClass {
     }
 
     @Test
-    public void RowValueIndex() throws Exception {
+    public void GetIndexBasedOnDependentCOlumn() throws Exception {
         lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
         Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"), "homepage is not displayed");
         shomepage.ClickonNavmenuitem("Table");
@@ -252,7 +252,7 @@ public class TableDataSearchValidations extends BaseClass {
     }
 
     @Test
-    public void RowvalueByIndex() throws Exception {
+    public void GetRowvalueByIndex() throws Exception {
         lpage.NavigateToUrl("https://demo.seleniumeasy.com/");
         Assert.assertTrue(shomepage.VerifySeleniumeasyHomepage("Input Forms"), "homepage is not displayed");
         shomepage.ClickonNavmenuitem("Table");
