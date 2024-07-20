@@ -1,17 +1,12 @@
 package TestNG.UtilityClass;
-
-import TestNG.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class WebElementExtention {
     WebDriver driver;
@@ -106,11 +101,16 @@ public class WebElementExtention {
         Select dropdown = new Select(testDropDown);
         dropdown.selectByValue(value);
     }
-    public String SelectDropdownOptionByIndex(String xpath, String index){
+    public void SelectDropdownOptionByIndex(String xpath, int index){
         WebElement testDropDown =Getwebelement(xpath);
         Select dropdown = new Select(testDropDown);
-        dropdown.selectByValue(index);
-        return xpath;
+        dropdown.selectByIndex(index);
+    }
+    public String GetSelectedDropdownItem(String xpath){
+        Select dropdown = new Select(Getwebelement(xpath));
+        WebElement selectedOption = dropdown.getFirstSelectedOption();
+        String selectedText = selectedOption.getText();
+        return selectedText;
     }
     public List<String> GetDropdownitems(String xpath){
         WebElement testDropDown = Getwebelement(xpath);
@@ -156,12 +156,7 @@ public class WebElementExtention {
         }
         return items;
     }
-    public String SelectDropdownOptionByIndex(String xpath, int index){
-        WebElement testDropDown =Getwebelement(xpath);
-        Select dropdown = new Select(testDropDown);
-        dropdown.selectByIndex(index);
-        return xpath;
-    }
+
     public void ClearInputFields(String xpath){
         Getwebelement(xpath).clear();
     }
@@ -186,6 +181,10 @@ public class WebElementExtention {
     {
         List<WebElement> headerColumns=driver.findElements(By.xpath(headersxpath));
         return headerColumns.size();
+    }
+    public int GetAllRowsCount(String xpath){
+        List<WebElement> rows=driver.findElements(By.xpath(xpath));
+        return rows.size();
     }
     public List<String> GetAllColumnHeaderValues(String headersxpath)
     {
@@ -293,6 +292,7 @@ public boolean VerifyDescendingorder(List<String> list)
 
     return isdescendingorder;
 }
+
 public boolean AllItemsAreEqual(List<String> items,String compareItemName){
      for(int i=0;i<=items.size()-1;i++){
          if(!items.get(i).equals(compareItemName)){
